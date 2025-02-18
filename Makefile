@@ -2,32 +2,33 @@
 CXX = g++
 # flags
 CXXFLAGS = -std=c++17 -Wall -Wextra -fsanitize=address -g
+SRC = src
 
 TARGETS = random dfs bfs greedy a_star
-OBJS = $(TARGETS).o
+OBJS = $(TARGETS).o maze.o
 
 all: $(TARGETS)
 
-random: random.cpp maze.o
+random: $(SRC)/random.cpp maze.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-dfs: dfs.cpp maze.o
+dfs: $(SRC)/dfs.cpp maze.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-bfs: bfs.cpp maze.o
+bfs: $(SRC)/bfs.cpp maze.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-greedy: greedy.cpp maze.o
+greedy: $(SRC)/greedy.cpp maze.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-a_star: a_star.cpp maze.o
+a_star: $(SRC)/a_star.cpp maze.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-maze.o: maze.cpp
+maze.o: $(SRC)/maze.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 # unit test
-test_maze: $(MAZEOBJ) utest/test_maze.cpp
+test_maze: $(MAZEOBJ) $(SRC)/utest/test_maze.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
