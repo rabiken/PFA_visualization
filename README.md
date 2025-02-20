@@ -1,6 +1,10 @@
 # PFA_visualization
 Visualization of 5 different algorithms (Random, BFS, DFS, Greedy, A*(A star) )
-## Table of Contents
+
+## Demo
+Here is a short demo of the A* algorithm in action:
+
+![A* Algorithm Demo](./video/pfa-astar-demo.gif)
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Usage](#usage)
